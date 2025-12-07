@@ -1,26 +1,29 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+/* Sistema de Diseño Coherente */
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+    /* Paleta de colores unificada - Tonos cálidos chocolate/café */
+    --primary: 25 62% 40%;
+    /* Marrón chocolate oscuro */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 35 80% 55%;
+    /* Naranja dorado */
+    --secondary-foreground: 0 0% 100%;
+    --accent: 25 55% 93%;
+    /* Crema claro */
+    --accent-foreground: 25 62% 20%;
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    --background: 0 0% 100%;
+    /* Blanco puro */
+    --foreground: 25 20% 15%;
+    /* Casi negro cálido */
+    --card: 0 0% 100%;
+    --card-foreground: 25 20% 15%;
+    --border: 25 15% 90%;
+    /* Gris cálido */
+    --muted: 25 10% 95%;
+    /* Gris muy claro */
+    --muted-foreground: 25 10% 40%;
+  }
 }
