@@ -34,7 +34,6 @@ export function ProductCard({ product, onView }: ProductCardProps) {
 
     const isOutOfStock = product.stock === 0;
     const isLowStock = product.stock > 0 && product.stock <= 10;
-
     return (
         <div className="group relative flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white transition-all duration-300 hover:shadow-xl hover:border-amber-300 hover:-translate-y-1">
             {/* Image */}
@@ -44,7 +43,9 @@ export function ProductCard({ product, onView }: ProductCardProps) {
                         src={product.imageUrl}
                         alt={product.name}
                         fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         className="object-cover transition-transform group-hover:scale-105"
+                        priority={product.isFeatured}
                     />
                 ) : (
                     <div className="flex h-full items-center justify-center">

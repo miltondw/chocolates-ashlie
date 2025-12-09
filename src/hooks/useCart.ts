@@ -5,7 +5,7 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import type { CartItem, Product } from '@/lib/types';
 import { storageService } from '@/services/storage.service';
-import { STOCK_LIMITS } from '@/lib/constants';
+import { STOCK_LIMITS, STORAGE_KEYS } from '@/lib/constants';
 
 interface CartItemWithProduct extends CartItem {
   product: Product;
@@ -20,6 +20,26 @@ export function useCart() {
   useEffect(() => {
     loadCart();
     loadProducts();
+
+    // Escuchar cambios en el localStorage desde otras pestañas o componentes
+    const handleStorageChange = (e: StorageEvent) => {
+      if (e.key === STORAGE_KEYS.CART || e.key === null) {
+        loadCart();
+      }
+    };
+
+    // Escuchar eventos personalizados de cambios en el carrito
+    const handleCartUpdate = () => {
+      loadCart();
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    window.addEventListener('cartUpdated', handleCartUpdate);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+      window.removeEventListener('cartUpdated', handleCartUpdate);
+    };
   }, []);
 
   const loadCart = async () => {
@@ -73,6 +93,7 @@ export function useCart() {
           quantity
         );
         setCart(updatedCart);
+        window.dispatchEvent(new Event('cartUpdated'));
         return true;
       } catch (error) {
         console.error('Error al añadir al carrito:', error);
@@ -80,6 +101,22 @@ export function useCart() {
       }
     },
     [cart, products]
+  );
+
+  // Eliminar item del carrito
+  const removeFromCart = useCallback(
+    async (productId: string): Promise<boolean> => {
+      try {
+        const updatedCart = await storageService.removeFromCart(productId);
+        setCart(updatedCart);
+        window.dispatchEvent(new Event('cartUpdated'));
+        return true;
+      } catch (error) {
+        console.error('Error al eliminar del carrito:', error);
+        return false;
+      }
+    },
+    []
   );
 
   // Actualizar cantidad de un item
@@ -106,28 +143,14 @@ export function useCart() {
           quantity
         );
         setCart(updatedCart);
+        window.dispatchEvent(new Event('cartUpdated'));
         return true;
       } catch (error) {
         console.error('Error al actualizar cantidad:', error);
         return false;
       }
     },
-    [products]
-  );
-
-  // Eliminar item del carrito
-  const removeFromCart = useCallback(
-    async (productId: string): Promise<boolean> => {
-      try {
-        const updatedCart = await storageService.removeFromCart(productId);
-        setCart(updatedCart);
-        return true;
-      } catch (error) {
-        console.error('Error al eliminar del carrito:', error);
-        return false;
-      }
-    },
-    []
+    [products, removeFromCart]
   );
 
   // Limpiar carrito
@@ -135,7 +158,8 @@ export function useCart() {
     try {
       await storageService.clearCart();
       setCart([]);
-      // Forzar actualización del localStorage
+      // Emitir eventos para actualizar todos los componentes
+      window.dispatchEvent(new Event('cartUpdated'));
       window.dispatchEvent(new Event('storage'));
     } catch (error) {
       console.error('Error al limpiar el carrito:', error);

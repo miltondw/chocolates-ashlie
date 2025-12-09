@@ -120,6 +120,7 @@ export const INITIAL_PRODUCTS = [
     weight: 100,
     stock: 50,
     isFeatured: true,
+    imageUrl:"/chocolates/Chocolate_Negro.jpg"
   },
   {
     name: 'Chocolate con Leche Clásico',
@@ -130,6 +131,7 @@ export const INITIAL_PRODUCTS = [
     weight: 100,
     stock: 75,
     isFeatured: true,
+    imageUrl:"/chocolates/Chocolate_con_Leche.jpg"
   },
   {
     name: 'Chocolate Blanco con Fresas',
@@ -145,6 +147,7 @@ export const INITIAL_PRODUCTS = [
     weight: 100,
     stock: 40,
     isFeatured: false,
+    imageUrl:"/chocolates/Chocolate_Blanco.jpg"
   },
   {
     name: 'Edición Especial: Café & Almendras',
@@ -155,6 +158,7 @@ export const INITIAL_PRODUCTS = [
     weight: 100,
     stock: 30,
     isFeatured: true,
+    imageUrl:"/chocolates/Edicion_Especial.jpg"
   },
 ];
 
