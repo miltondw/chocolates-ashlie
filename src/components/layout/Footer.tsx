@@ -107,7 +107,15 @@ export function Footer() {
                         © {currentYear} {COMPANY_INFO.name}. Todos los derechos reservados.
                     </p>
                     <p className="mt-2 text-sm">
-                        Desarrollado por {COMPANY_INFO.responsible}
+                        Desarrollado por{' '}
+                        <a
+                            href="https://github.com/miltondw"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-semibold text-amber-600 hover:text-amber-700 transition-colors hover:underline"
+                        >
+                            Milton Estrada
+                        </a>
                     </p>
                 </div>
             </div>

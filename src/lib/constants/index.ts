@@ -9,9 +9,9 @@ import type { CompanySettings, ProductCategory } from '../types';
  */
 export const COMPANY_INFO: CompanySettings = {
   name: 'Chocolates ASHLIE',
-  responsible: 'Duvan Torrado Mora',
+  responsible: 'Milton Estrada',
   phone: '3167141043',
-  email: 'ldtorradom@ufpso.edu.co',
+  email: 'contacto@chocolates-ashlie.com',
   address: 'Cúcuta, Norte de Santander, Colombia',
   shippingCost: 15000,
   currency: 'COP',

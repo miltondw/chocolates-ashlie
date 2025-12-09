@@ -1,6 +1,5 @@
 /**
  * Servicio de almacenamiento local para la aplicación
- * Implementa el patrón Singleton para gestionar localStorage
  */
 
 import type {
@@ -16,14 +15,11 @@ import {
 } from '@/lib/constants';
 import { generateId } from '@/lib/utils';
 
-/**
- * Clase Singleton para gestionar el almacenamiento local
- */
+
 class StorageService {
   private static instance: StorageService;
 
   private constructor() {
-    // Constructor privado para el patrón Singleton
   }
 
   /**
@@ -75,7 +71,7 @@ class StorageService {
   /**
    * Reviver para parsear fechas correctamente
    */
-  private dateReviver(_key: string, value: any): any {
+  private dateReviver(_key: string, value: unknown): unknown {
     if (typeof value === 'string') {
       const dateRegex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}/;
       if (dateRegex.test(value)) {

@@ -2,6 +2,12 @@
 
 Aplicación web moderna para la gestión y presentación de la Fábrica de Chocolates ASHLIE, construida con Next.js 16, React 19 y Tailwind CSS 4.
 
+## 🌐 Despliegue
+
+**URL en producción**: [https://chocolates-ashlie.vercel.app/](https://chocolates-ashlie.vercel.app/)
+
+Desplegado en Vercel con integración continua desde GitHub.
+
 ## 🚀 Características Principales
 
 ### Páginas Implementadas
@@ -21,20 +27,6 @@ Aplicación web moderna para la gestión y presentación de la Fábrica de Choco
 - **Iconos**: Lucide React
 - **Estado**: Custom Hooks + LocalStorage
 
-## 📋 Instalación y Uso
-
-```bash
-# Instalar dependencias
-npm install
-
-# Modo desarrollo
-npm run dev
-
-# Build de producción
-npm run build
-```
-
-Abrir http://localhost:3000 en el navegador.
 
 ## 💡 Funcionalidades
 
@@ -49,8 +41,8 @@ Abrir http://localhost:3000 en el navegador.
 
 ## 👤 Información
 
-**Desarrollador**: Duvan Torrado Mora  
-**Email**: ldtorradom@ufpso.edu.co  
-**Teléfono**: 3167141043
+**Desarrollador**: Milton Estrada  
+**GitHub**: [github.com/miltondw](https://github.com/miltondw)  
+**Proyecto**: Chocolates ASHLIE
 
 ✨ **Aplicación lista para producción con arquitectura escalable**
