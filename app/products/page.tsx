@@ -32,18 +32,18 @@ export default function ProductsPage() {
     });
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-16 lg:py-20">
-            <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-                <div className="mb-12">
-                    <h1 className="mb-4 text-4xl lg:text-5xl font-bold text-gray-900">
+        <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-8 sm:py-12 lg:py-20">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-12">
+                <div className="mb-8 sm:mb-12">
+                    <h1 className="mb-3 sm:mb-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">
                         Catálogo de Productos
                     </h1>
-                    <p className="text-xl text-gray-600">
+                    <p className="text-lg sm:text-xl text-gray-600">
                         Descubre nuestra selección de chocolates artesanales
                     </p>
                 </div>
 
-                <div className="grid gap-10 lg:grid-cols-4">
+                <div className="flex flex-col lg:grid lg:grid-cols-4 gap-6 lg:gap-10">
                     <aside className="lg:col-span-1">
                         <ProductFilters
                             searchQuery={searchQuery}
@@ -63,8 +63,8 @@ export default function ProductsPage() {
                             </div>
                         ) : (
                             <>
-                                <div className="mb-8 flex items-center justify-between">
-                                    <p className="text-base font-medium text-gray-600">
+                                <div className="mb-6 sm:mb-8 flex items-center justify-between">
+                                    <p className="text-sm sm:text-base font-medium text-gray-600">
                                         {filteredProducts.length} producto
                                         {filteredProducts.length !== 1 ? 's' : ''} encontrado
                                         {filteredProducts.length !== 1 ? 's' : ''}

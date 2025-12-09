@@ -82,14 +82,14 @@ export function ProductCard({ product, onView }: ProductCardProps) {
             </div>
 
             {/* Content */}
-            <div className="flex flex-1 flex-col p-5">
+            <div className="flex flex-1 flex-col p-4 sm:p-5">
                 {/* Category */}
                 <span className="mb-2 text-xs font-semibold text-amber-600 uppercase tracking-wide">
                     {PRODUCT_CATEGORIES[product.category].label}
                 </span>
 
                 {/* Name */}
-                <h3 className="mb-3 line-clamp-2 text-lg font-bold text-gray-900 group-hover:text-amber-700 transition-colors">
+                <h3 className="mb-3 line-clamp-2 text-base sm:text-lg font-bold text-gray-900 group-hover:text-amber-700 transition-colors">
                     {product.name}
                 </h3>
 
@@ -102,9 +102,9 @@ export function ProductCard({ product, onView }: ProductCardProps) {
                 <p className="mb-4 text-sm font-medium text-gray-500">📦 {product.weight}g</p>
 
                 {/* Price & Actions */}
-                <div className="flex items-end justify-between gap-3 pt-4 border-t border-gray-100">
+                <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-3 pt-4 border-t border-gray-100">
                     <div>
-                        <p className="text-2xl font-bold text-amber-600 mb-1">
+                        <p className="text-xl sm:text-2xl font-bold text-amber-600 mb-1">
                             {formatPrice(product.price)}
                         </p>
                         <p className="text-xs font-medium text-gray-500">
@@ -116,6 +116,7 @@ export function ProductCard({ product, onView }: ProductCardProps) {
                         size="sm"
                         onClick={handleAddToCart}
                         disabled={isOutOfStock}
+                        className="w-full sm:w-auto"
                     >
                         <ShoppingCart className="h-4 w-4" />
                         {isOutOfStock ? 'Agotado' : 'Agregar'}
